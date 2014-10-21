@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @next_step.description %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @next_step.name %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @next_step.owner %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @next_step.date %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @next_step.owner %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @next_step.link %>
+</p>
+
+<%= link_to 'Edit', edit_next_step_path(@next_step) %> |
+<%= link_to 'Back', next_steps_path %>

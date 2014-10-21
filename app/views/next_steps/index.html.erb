@@ -1,0 +1,35 @@
+<h1>Übersicht der nächsten Schritte</h1>
+
+<table class="table table-hover" >
+  <thead>
+    <tr>
+      <th>Projekt </th>
+      <th>Name</th>
+      <th>Beschreibung</th>
+      <th>Fällig</th>
+      <th>Zuständig</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+        <% @next_steps.each do |next_step| %>
+            <tr>
+                <td><%= next_step[:board].name %></td>
+                <td><%= next_step[:card].name %></td>
+                <td><%= next_step[:card].desc %></td>
+                <td>
+                    <% due_date = next_step[:card].due %>
+                    <% if (due_date != nil) && (due_date > Date.today) %>
+                        <span class="label label-danger">Überfällig</span>
+                    <% end %>
+                    <%= due_date.strftime("%d.%m.%y") rescue "n.A" %>
+                </td>
+                <td><%= next_step[:members].collect{|m| m.username}.join (" ") %></td>
+                <td><%= link_to 'Zum Board springen', next_step[:card].short_url %></td>
+            </tr>
+        <% end %>
+  </tbody>
+</table>
+
+<br>
